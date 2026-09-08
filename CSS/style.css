@@ -1,0 +1,968 @@
+:root {
+  --bg: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navbar Section Start */
+.navbar {
+  display: flex;
+  padding: 0.6rem 7%;
+  justify-content: space-between;
+  background-color: #fff;
+  border-bottom: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.hamburger {
+  display: none;
+  /* Hamburger disembunyikan pada desktop.
+       Kita hanya akan menampilkannya melalui media query mobile. */
+
+  flex-direction: column;
+  /* Tiga <span> hamburger disusun secara vertikal. */
+
+  justify-content: center;
+  /* Membuat garis hamburger berada di tengah secara vertikal. */
+
+  gap: 5px;
+  /* Memberikan jarak antar garis hamburger. */
+
+  background: transparent;
+  /* Menghilangkan background default dari button. */
+
+  padding: 0.5rem;
+  /* Memberikan area klik yang lebih besar agar mudah ditekan di HP. */
+
+  cursor: pointer;
+  /* Cursor berubah menjadi pointer ketika diarahkan ke hamburger. */
+
+  z-index: 10000;
+  /* Memastikan tombol berada di atas menu dan elemen lainnya. */
+}
+
+.hamburger span {
+  display: block;
+  /* Membuat setiap garis memiliki box sendiri. */
+
+  width: 25px;
+  /* Menentukan panjang garis hamburger. */
+
+  height: 3px;
+  /* Menentukan ketebalan garis hamburger. */
+
+  background-color: #000;
+  /* Memberikan warna hitam pada garis. */
+
+  border-radius: 5px;
+  /* Membuat ujung garis sedikit membulat. */
+
+  transition: all 0.3s ease;
+  /* Membuat perubahan hamburger menjadi smooth ketika berubah menjadi X. */
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+  /* Garis pertama digeser ke bawah lalu diputar
+       sehingga menjadi bagian pertama dari simbol X. */
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  /* Garis tengah disembunyikan karena X hanya membutuhkan dua garis. */
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+  /* Garis ketiga digeser ke atas lalu diputar
+       sehingga bertemu dengan garis pertama membentuk X. */
+}
+
+.navbar-logo {
+  display: flex;
+  /* Logo dan teks jadi satu baris */
+  align-items: center;
+  /* Sejajarin logo sama teks secara vertikal */
+}
+
+.navbar-logo .logo {
+  width: 40px;
+  /* Atur ukuran lebar logo */
+  height: auto;
+  /* Biar tetap proporsional */
+}
+
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+.navbar .navbar-nav a {
+  display: inline-block;
+  margin: 0.6rem;
+  color: #000000;
+  font-size: 1.2rem;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+  /* Animasi smooth */
+}
+
+.navbar .navbar-nav a:hover {
+  color: #ff4500;
+  /* Warna berubah pas di-hover */
+  transform: scale(1.05);
+  /* Link membesar pas di-hover */
+}
+
+/* Hero Section Start */
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  min-height: 100vh;
+  background-image: url("../Asset/Hero-img.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: #000;
+  /* Fallback color */
+  padding-bottom: 15rem;
+  padding-left: 7rem;
+  margin: 0;
+}
+
+.hero-left {
+  width: 100%;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+  color: #fff;
+  gap: 1rem;
+}
+
+.hero-left h2 {
+  font-size: 4rem;
+}
+
+.hero-left p {
+  font-size: 0.9rem;
+}
+
+.hero-left button {
+  font-weight: 600;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background-color: #ff4400;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.hero-left button:hover {
+  background-color: #ff8c00;
+  transform: scale(1.02);
+}
+
+.hero-right {
+  position: absolute;
+  color: #fff;
+  top: 30%;
+}
+
+.hero-right h2 {
+  font-size: 4rem;
+}
+
+.hero-right {
+  position: absolute;
+  right: 10%;
+  top: 30%;
+}
+
+/* about section start */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.about {
+  padding: 5rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  justify-content: center;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+  width: 700px;
+  height: 700px;
+}
+
+.about-image img {
+  height: 100%;
+  width: auto;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-content h2 {
+  font-size: 3rem;
+}
+
+.about-content p {
+  font-size: 1.2rem;
+}
+
+/* Product Start */
+.product {
+  background-color: #f5f5f5;
+  padding: 5rem;
+}
+
+.product h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.product h2 {
+  font-size: 2.2rem;
+}
+
+.section-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.product-card {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-image {
+  width: auto;
+}
+
+.product-image img {
+  width: 100%;
+}
+
+.product-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.product-content h3 {
+  font-size: 1.5rem;
+}
+
+.product-content p {
+  font-size: 1rem;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-footer span {
+  font-size: 1.2rem;
+}
+
+.product-footer button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.product-footer button:hover {
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+/* Contact Section*/
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 60vh;
+  background-color: #e4e4e4;
+  gap: 2rem;
+}
+
+.contact-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-heading h2 {
+  font-size: 3rem;
+}
+
+.contact-heading p {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.contact-form {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+input,
+textarea {
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #999;
+}
+
+/* Footer */
+footer {
+  color: white;
+  background-color: #000;
+  position: relative;
+  padding: 5rem;
+}
+
+.footer-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand img {
+  height: 50px;
+}
+
+.footer-links {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links a {
+  color: white;
+}
+
+.footer-social h2,
+.footer-nav h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-content a {
+  font-size: 1.2rem;
+  color: #000;
+}
+
+/* responsive design start */
+
+@media (max-width: 992px) {
+  /* Semua kode di dalam sini hanya berlaku
+       ketika lebar viewport 992px atau lebih kecil. */
+
+  .navbar {
+    padding: 0.6rem 5%;
+    /* Mengurangi padding horizontal navbar.
+           Pada layar yang lebih sempit, 7% mulai terasa terlalu lebar. */
+
+    align-items: center;
+    /* Memastikan logo dan elemen navbar sejajar secara vertikal. */
+  }
+
+  .navbar .navbar-logo {
+    font-size: 1.7rem;
+    /* Mengecilkan ukuran teks logo agar navbar tidak terlalu besar. */
+  }
+
+  .navbar-nav a {
+    margin: 0.4rem;
+    /* Mengurangi jarak antar navigation link. */
+
+    font-size: 1rem;
+    /* Mengecilkan ukuran teks navigation agar lebih hemat ruang. */
+  }
+
+  .hero {
+    padding-left: 4rem;
+    /* Mengurangi jarak konten hero dari sisi kiri layar. */
+
+    padding-bottom: 8rem;
+    /* Mengurangi padding bawah hero agar ruang kosong tidak terlalu besar. */
+  }
+
+  .hero-left {
+    max-width: 400px;
+    /* Mengecilkan lebar maksimal teks hero supaya tidak terlalu melebar. */
+  }
+
+  .hero-left h2 {
+    font-size: 3rem;
+    /* Mengecilkan heading hero dari 4rem menjadi 3rem. */
+  }
+
+  .hero-right h2 {
+    font-size: 3rem;
+    /* Mengecilkan tulisan Adidas di sisi kanan hero. */
+  }
+
+  .about {
+    padding: 4rem 3rem;
+    /* Mengurangi padding About supaya konten mendapat lebih banyak ruang. */
+  }
+
+  .about-image {
+    width: 500px;
+    /* Mengecilkan ukuran image About dari 700px. */
+
+    height: 500px;
+    /* Menyamakan tinggi image dengan ukuran barunya. */
+  }
+
+  .about-content h2 {
+    font-size: 2.5rem;
+    /* Mengecilkan heading About agar proporsional dengan layar. */
+  }
+
+  .about-content p {
+    font-size: 1rem;
+    /* Mengecilkan ukuran paragraf agar lebih nyaman dibaca. */
+  }
+
+  .product {
+    padding: 4rem 3rem;
+    /* Mengurangi padding section product. */
+
+    overflow: hidden;
+    /* Mencegah konten product menyebabkan overflow horizontal. */
+  }
+
+  .product-container {
+    gap: 1rem;
+    /* Mengurangi jarak antar product card. */
+  }
+
+  .product-card {
+    width: 300px;
+    /* Mengecilkan card dari 350px agar tiga card lebih mudah masuk. */
+
+    margin: 0.5rem;
+    /* Mengurangi margin card agar layout lebih rapat. */
+  }
+
+  .contact {
+    gap: 1rem;
+    /* Mengurangi jarak antara bagian heading dan form. */
+
+    padding: 3rem;
+    /* Memberikan ruang dalam section tanpa terlalu memakan viewport. */
+  }
+
+  footer {
+    padding: 4rem 3rem;
+    /* Mengurangi padding footer pada layar yang lebih kecil. */
+  }
+
+  .footer-grid {
+    gap: 4rem;
+    /* Mengurangi gap footer agar kolom tidak terlalu berjauhan. */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Aktif ketika viewport 768px atau lebih kecil. */
+
+  .navbar {
+    padding: 0.6rem 5%;
+    /* Memberikan ruang kiri dan kanan yang tetap nyaman pada tablet/mobile besar. */
+  }
+
+  .navbar-nav {
+    position: absolute;
+    /* Menu ditempatkan tepat di bawah navbar. */
+
+    top: 100%;
+    /* Posisi awal menu berada di bawah navbar. */
+
+    left: 0;
+    /* Menu dimulai dari sisi kiri navbar. */
+
+    right: 0;
+    /* Menu melebar sampai sisi kanan navbar. */
+
+    display: flex;
+    /* Menu tetap menggunakan flex.
+           Kita TIDAK menggunakan display:none karena display tidak bisa dianimasikan. */
+
+    flex-direction: column;
+    /* Link disusun secara vertikal. */
+
+    background-color: #fff;
+    /* Memberikan background putih pada dropdown. */
+
+    padding: 1rem 0;
+    /* Memberikan ruang atas dan bawah pada menu. */
+
+    border-top: 1px solid #eee;
+    /* Memberikan garis pemisah antara navbar dan menu. */
+
+    opacity: 0;
+    /* Menu dibuat transparan ketika belum aktif. */
+
+    visibility: hidden;
+    /* Menu tidak bisa dilihat dan tidak bisa berinteraksi ketika belum aktif. */
+
+    transform: translateY(-20px);
+    /* Menu digeser 20px ke atas sebagai posisi awal animasi. */
+
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease;
+    /* Ketiga property tersebut akan berubah secara smooth. */
+  }
+
+  .navbar-nav.active {
+    opacity: 1;
+    /* Ketika active, menu menjadi terlihat penuh. */
+
+    visibility: visible;
+    /* Menu sekarang bisa dilihat dan diklik. */
+
+    transform: translateY(0);
+    /* Menu bergerak kembali ke posisi normal.
+           Inilah yang menghasilkan efek slide down. */
+  }
+
+  .navbar-nav a {
+    width: 100%;
+    /* Setiap link menggunakan seluruh lebar menu. */
+
+    margin: 0;
+    /* Menghilangkan margin desktop agar link tersusun rapi. */
+
+    padding: 0.8rem 5%;
+    /* Membuat area klik link lebih besar dan nyaman untuk jari. */
+
+    font-size: 1rem;
+    /* Menjaga ukuran teks tetap mudah dibaca. */
+  }
+
+  .navbar-nav a:hover {
+    transform: none;
+    /* Menghilangkan efek scale pada mobile.
+           Touchscreen tidak memiliki hover seperti mouse. */
+  }
+
+  .hamburger {
+    display: flex;
+    /* Menampilkan hamburger pada ukuran 768px ke bawah. */
+  }
+
+  .hero {
+    flex-direction: column;
+    /* Mengubah layout hero dari horizontal menjadi vertikal.
+           Ini penting karena layar mobile tidak cukup lebar untuk dua sisi. */
+
+    justify-content: center;
+    /* Memusatkan isi hero secara vertikal. */
+
+    align-items: flex-start;
+    /* Menjaga konten hero tetap berada di sisi kiri. */
+
+    min-height: 100vh;
+    /* Hero tetap memiliki tinggi minimal satu viewport. */
+
+    padding: 8rem 2rem 4rem;
+    /* Memberikan ruang atas karena navbar fixed,
+           sekaligus mengurangi padding ekstrem dari desktop. */
+  }
+
+  .hero-left {
+    width: 100%;
+    /* Membolehkan konten menggunakan seluruh lebar yang tersedia. */
+
+    max-width: 500px;
+    /* Mencegah paragraf menjadi terlalu lebar. */
+
+    gap: 0.8rem;
+    /* Mengurangi jarak antar elemen hero. */
+  }
+
+  .hero-left h2 {
+    font-size: 2.5rem;
+    /* Mengecilkan heading hero agar tidak memenuhi layar HP. */
+  }
+
+  .hero-right {
+    position: static;
+    /* Menghapus absolute positioning.
+           Pada mobile lebih aman membiarkan elemen mengikuti flow normal. */
+
+    margin-top: 2rem;
+    /* Memberikan jarak antara hero-left dan hero-right. */
+  }
+
+  .hero-right h2 {
+    font-size: 2.5rem;
+    /* Mengecilkan heading sisi kanan hero. */
+  }
+
+  .about {
+    padding: 4rem 2rem;
+    /* Mengurangi padding About untuk menghemat ruang horizontal. */
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    /* Mengubah About dari dua kolom menjadi satu kolom.
+           Image dan text sekarang ditumpuk secara vertikal. */
+
+    gap: 2rem;
+    /* Memberikan jarak antara image dan text. */
+  }
+
+  .about-image {
+    width: 100%;
+    /* Image mengikuti lebar container dan tidak lagi fixed 700px/500px. */
+
+    max-width: 500px;
+    /* Membatasi ukuran maksimal image. */
+
+    height: auto;
+    /* Tinggi mengikuti rasio image. */
+
+    margin: 0 auto;
+    /* Memusatkan image secara horizontal. */
+  }
+
+  .about-image img {
+    width: 100%;
+    /* Membuat image mengisi container. */
+
+    height: auto;
+    /* Menjaga aspect ratio image. */
+  }
+
+  .about-content h2 {
+    font-size: 2.3rem;
+    /* Mengecilkan heading About untuk mobile. */
+  }
+
+  .about-content p {
+    font-size: 1rem;
+    /* Ukuran paragraf yang lebih nyaman untuk layar kecil. */
+  }
+
+  .product {
+    padding: 4rem 2rem;
+    /* Mengurangi padding section product. */
+  }
+
+  .product h2 {
+    font-size: 2.3rem;
+    /* Mengecilkan heading Product. */
+  }
+
+  .product-container {
+    width: 100%;
+    /* Container menggunakan seluruh lebar yang tersedia. */
+
+    flex-direction: column;
+    /* Mengubah tiga card horizontal menjadi susunan vertikal. */
+
+    align-items: center;
+    /* Memusatkan semua card. */
+
+    gap: 1.5rem;
+    /* Memberikan jarak antar card. */
+  }
+
+  .product-card {
+    width: 100%;
+    /* Card mengikuti lebar layar/container. */
+
+    max-width: 400px;
+    /* Card tidak boleh menjadi terlalu lebar pada tablet. */
+
+    margin: 0;
+    /* Menghilangkan margin desktop agar spacing dikontrol oleh gap. */
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+    /* Mengubah contact dari dua kolom menjadi satu kolom. */
+
+    height: auto;
+    /* Jangan memaksa tinggi 60vh.
+           Konten mobile bisa membutuhkan tinggi lebih besar. */
+
+    padding: 4rem 2rem;
+    /* Memberikan ruang di sekitar contact content. */
+
+    gap: 2rem;
+    /* Memberikan jarak antara heading dan form. */
+  }
+
+  .contact-heading {
+    text-align: center;
+    /* Memusatkan teks heading contact pada mobile. */
+  }
+
+  .contact-heading h2 {
+    font-size: 2.3rem;
+    /* Mengecilkan heading Contact. */
+  }
+
+  .contact-heading p {
+    font-size: 1rem;
+    /* Mengecilkan paragraf contact. */
+  }
+
+  .contact-form {
+    width: 100%;
+    /* Form menggunakan lebar yang tersedia. */
+
+    max-width: 500px;
+    /* Form tidak terlalu lebar. */
+
+    margin: 0 auto;
+    /* Memusatkan form. */
+  }
+
+  footer {
+    padding: 4rem 2rem;
+    /* Mengurangi padding footer pada mobile. */
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    /* Mengubah footer menjadi satu kolom. */
+
+    gap: 2rem;
+    /* Memberikan jarak antar bagian footer. */
+  }
+}
+
+@media (max-width: 576px) {
+  /* Aktif ketika viewport 576px atau lebih kecil. */
+
+  .navbar .navbar-logo {
+    font-size: 1.4rem;
+    /* Mengecilkan logo text agar navbar tidak terlalu penuh. */
+  }
+
+  .navbar-logo .logo {
+    width: 32px;
+    /* Mengecilkan icon logo agar seimbang dengan ukuran teks. */
+  }
+
+  .hamburger span {
+    width: 22px;
+    /* Mengecilkan panjang garis hamburger untuk HP kecil. */
+
+    height: 2px;
+    /* Mengecilkan ketebalan garis agar terlihat lebih proporsional. */
+  }
+
+  .hero {
+    padding: 7rem 1.5rem 3rem;
+    /* Mengurangi padding horizontal dan vertical pada layar kecil. */
+  }
+
+  .hero-left h2 {
+    font-size: 2rem;
+    /* Heading 2rem lebih proporsional pada HP kecil. */
+  }
+
+  .hero-left p {
+    font-size: 0.85rem;
+    /* Mengecilkan paragraf agar tidak terlalu banyak memakan ruang. */
+
+    line-height: 1.6;
+    /* Memberikan jarak antar baris supaya teks tetap mudah dibaca. */
+  }
+
+  .hero-left button {
+    padding: 0.7rem 1.2rem;
+    /* Mengecilkan ukuran button agar proporsional dengan layar. */
+
+    font-size: 0.9rem;
+    /* Mengecilkan teks button. */
+  }
+
+  .hero-right {
+    margin-top: 1.5rem;
+    /* Mengurangi jarak antara hero content dan tulisan Adidas. */
+  }
+
+  .hero-right h2 {
+    font-size: 2rem;
+    /* Mengecilkan heading hero-right. */
+  }
+
+  .about {
+    padding: 3rem 1.5rem;
+    /* Mengurangi padding horizontal agar konten memiliki lebih banyak ruang. */
+  }
+
+  .about-image {
+    max-width: 100%;
+    /* Memastikan image tidak pernah lebih lebar dari layar. */
+  }
+
+  .about-content h2 {
+    font-size: 2rem;
+    /* Mengecilkan heading About. */
+  }
+
+  .about-content p {
+    font-size: 0.9rem;
+    /* Mengecilkan teks About pada HP kecil. */
+
+    line-height: 1.7;
+    /* Meningkatkan readability teks yang kecil. */
+  }
+
+  .product {
+    padding: 3rem 1.5rem;
+    /* Mengurangi padding product pada HP kecil. */
+  }
+
+  .product h2 {
+    font-size: 2rem;
+    /* Mengecilkan heading Product. */
+  }
+
+  .product-card {
+    width: 100%;
+    /* Card tetap memenuhi lebar container. */
+
+    max-width: 100%;
+    /* Menghindari card melebihi viewport. */
+  }
+
+  .product-content h3 {
+    font-size: 1.3rem;
+    /* Mengecilkan nama produk. */
+  }
+
+  .product-content p {
+    font-size: 0.9rem;
+    /* Mengecilkan deskripsi produk. */
+  }
+
+  .product-footer span {
+    font-size: 1rem;
+    /* Mengecilkan harga agar proporsional dengan card. */
+  }
+
+  .contact {
+    padding: 3rem 1.5rem;
+    /* Mengurangi padding contact. */
+  }
+
+  .contact-heading h2 {
+    font-size: 2rem;
+    /* Mengecilkan heading Contact. */
+  }
+
+  input,
+  textarea {
+    padding: 1rem;
+    /* Mengurangi padding input agar tidak terlalu besar di HP kecil. */
+  }
+
+  footer {
+    padding: 3rem 1.5rem;
+    /* Mengurangi padding footer. */
+  }
+
+  .footer-grid {
+    gap: 2rem;
+    /* Menjaga jarak antar bagian footer tetap nyaman. */
+  }
+}
