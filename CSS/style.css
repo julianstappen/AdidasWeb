@@ -92,7 +92,7 @@ html {
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: translateY(-15px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
   /* Garis ketiga digeser ke atas lalu diputar
        sehingga bertemu dengan garis pertama membentuk X. */
 }
@@ -595,13 +595,13 @@ footer {
     visibility: hidden;
     /* Menu tidak bisa dilihat dan tidak bisa berinteraksi ketika belum aktif. */
 
-    transform: translateY(-20px);
+    transform: translateY(-25px);
     /* Menu digeser 20px ke atas sebagai posisi awal animasi. */
 
     transition:
-      opacity 0.3s ease,
-      transform 0.3s ease,
-      visibility 0.3s ease;
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    visibility 0.35s ease;
     /* Ketiga property tersebut akan berubah secara smooth. */
   }
 
